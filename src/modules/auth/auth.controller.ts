@@ -10,7 +10,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import { Request, Response } from 'express';
 import { LoginDto } from 'src/dtos/user.dto';
 import { COOKIE_AGES } from 'src/lib/auth';
