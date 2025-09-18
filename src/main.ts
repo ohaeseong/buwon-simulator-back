@@ -2,11 +2,19 @@ import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import * as cookieParser from 'cookie-parser';
+import * as fs from 'fs';
 import { join } from 'path';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  const httpsOptions = {
+    key: fs.readFileSync(process.env.SSL_KEY_FILE),
+    cert: fs.readFileSync(process.env.SSL_CRT_FILE),
+  };
+
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, {
+    httpsOptions,
+  });
 
   app.useStaticAssets(join(__dirname, '..', 'upload'), {
     prefix: '/upload/',
