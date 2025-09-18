@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  api:
+    image: buwon-simulator-back
+    container_name: simulator-back-end
+    env_file: .production.env
+    restart: unless-stopped
