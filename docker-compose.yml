@@ -4,4 +4,13 @@ services:
     image: buwon-simulator-back
     container_name: simulator-back-end
     env_file: .production.env
+    networks:
+      - mysqlnet
+    ports:
+      - '${PORT:-8080}:${PORT:-8080}'
     restart: unless-stopped
+
+networks:
+  mysqlnet:
+    external: true
+    name: mysql-930_default
