@@ -16,7 +16,6 @@ RUN yarn install
 
 FROM deps AS build
 
-COPY certs ./
 COPY tsconfig.json ./
 COPY src ./src
 
