@@ -7,7 +7,7 @@ services:
     networks:
       - mysqlnet
     ports:
-      - '${PORT:-8433}:${PORT:-8433}'
+      - '${PORT:-3000}:${PORT:-3000}'
     restart: unless-stopped
 
 networks:
