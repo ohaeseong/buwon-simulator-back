@@ -4,6 +4,8 @@ services:
     image: buwon-simulator-back
     container_name: simulator-back-end
     env_file: .production.env
+    volumes:
+      - /usr/syno/etc/certificate/_archive/g9eO0b:/app/certs:ro
     networks:
       - mysqlnet
     ports:
